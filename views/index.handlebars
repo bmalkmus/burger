@@ -1,4 +1,4 @@
-<img src = "../public/assests/images/burger.png">
+<img src = "/assets/images/burger.png">
 <br>
 <br>
 
@@ -6,23 +6,23 @@
 
 <div class = "burger-container">
     <div class = "non-eaten">
-        {{#each burger}}
+        {{#each burgers}}
         {{#unless devoured}}
             <div>
-                <p>{{id}}. {{name}}</p>
+                <p>{{id}}. {{burger_name}}</p>
             </div>
             <div>
-                <button id = {{id}}> Devour It</button>
+                <button class = "devoured" data-id = {{id}}> Devour It</button>
             </div>
         {{/unless}}
         {{/each}}
     </div>
 
     <div class = "eaten">
-        {{#each}}
+        {{#each burgers}}
         {{#if devoured}}
             <div>
-                <p>{{id}}.  {{name}}</p>
+                <p>{{id}}.  {{burger_name}}</p>
             </div>
         {{/if}}
         {{/each}}

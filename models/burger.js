@@ -13,8 +13,8 @@ var burger = {
         })
     },
 
-    add: function(objColVals, condition, cb) {
-        orm.updateOne ("burgers", objColVals, condition, function(res){
+    add: function (condition, cb) {
+        orm.updateOne ("burgers", condition, function(res){
             cb(res);
         })
     }
