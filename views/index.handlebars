@@ -1,0 +1,40 @@
+<img src = "../public/assests/images/burger.png">
+<br>
+<br>
+
+<h1>EAT-DA-BURGER!!</h1>
+
+<div class = "burger-container">
+    <div class = "non-eaten">
+        {{#each burger}}
+        {{#unless devoured}}
+            <div>
+                <p>{{id}}. {{name}}</p>
+            </div>
+            <div>
+                <button id = {{id}}> Devour It</button>
+            </div>
+        {{/unless}}
+        {{/each}}
+    </div>
+
+    <div class = "eaten">
+        {{#each}}
+        {{#if devoured}}
+            <div>
+                <p>{{id}}.  {{name}}</p>
+            </div>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
+
+<br>
+<br>
+
+<form class= "create-burger">
+
+    <label for="burger">Burger Name:</label>
+    <input type="text" id = "burger" name= "name">
+    <button type="submit">Create that Awesomeness!</button>
+</form>
