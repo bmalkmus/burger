@@ -1,33 +1,37 @@
-<img src = "/assets/images/burger.png">
+<img id = "cartoon" src = "/assets/images/burger.png">
 <br>
 <br>
 
 <h1>EAT-DA-BURGER!!</h1>
+    <div id = "burger-container">
+        <div class = "non-eaten">
+            {{#each burgers}}
+            {{#unless devoured}}
+                <div>
+                    <div class="name1">
+                        <p class = "namez">{{id}}. {{burger_name}} </p> 
+                    </div> 
+                    <div class = "name2">       
+                        <p><button class = "devoured" data-id = {{id}}> Devour It</button></p>
+                    
+                    </div>
+                </div>
+                
+                
+            {{/unless}}
+            {{/each}}
+        </div>
 
-<div class = "burger-container">
-    <div class = "non-eaten">
-        {{#each burgers}}
-        {{#unless devoured}}
-            <div>
-                <p>{{id}}. {{burger_name}}</p>
-            </div>
-            <div>
-                <button class = "devoured" data-id = {{id}}> Devour It</button>
-            </div>
-        {{/unless}}
-        {{/each}}
+        <div class = "eaten">
+            {{#each burgers}}
+            {{#if devoured}}
+                <div>
+                    <p>{{id}}.  {{burger_name}}</p>
+                </div>
+            {{/if}}
+            {{/each}}
+        </div>
     </div>
-
-    <div class = "eaten">
-        {{#each burgers}}
-        {{#if devoured}}
-            <div>
-                <p>{{id}}.  {{burger_name}}</p>
-            </div>
-        {{/if}}
-        {{/each}}
-    </div>
-</div>
 
 <br>
 <br>
