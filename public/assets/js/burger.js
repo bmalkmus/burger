@@ -1,4 +1,37 @@
 
 
 
-$(".create-burger").on("submit",function(e){console.log("click"),e.preventDefault();var o={burger_name:$("#burger").val().trim()};$.ajax("/api/burgers",{type:"POST",data:o}).then(function(){console.log("New Burger added"),location.reload()})}),$(".devoured").on("click",function(e){console.log("Click");var o=$(this).data("id");$.ajax("/api/burgers/"+o,{type:"PUT",data:!0}).then(function(){console.log("Burger has been destryed by your mouth!"),location.reload()})});
+$(".create-burger").on("submit", function(event) {
+    console.log("click")
+    event.preventDefault();
+
+    var newBurg = {
+        burger_name: $("#burger").val().trim()
+    };
+
+    $.ajax("/api/burgers", {
+        type: "POST",
+        data: newBurg
+    }).then(function(){
+        console.log("New Burger added");
+        location.reload();
+    });
+});
+
+$(".devoured").on("click", function(event){
+    console.log("Click")
+    var id = $(this).data("id");
+    var eaten = true;
+
+    $.ajax("/api/burgers/" + id, {
+        type: "PUT",
+        data: eaten
+
+    }).then(
+        function(){
+            console.log("Burger has been destryed by your mouth!");
+            location.reload();
+        }
+    );
+
+});
